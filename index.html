@@ -65,8 +65,7 @@
 
     .pill-tag {
       display: inline-block;
-      border: 1px solid #000000',
-          ;
+      border: 1px solid #000000;
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -148,9 +147,9 @@
 
   <!-- NAVBAR -->
   <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
       <a href="#inicio" class="flex items-center gap-2">
-        <span class="font-serif text-xl tracking-tight" style="font-family:'DM Serif Display',serif;">Metodología 5S</span>
+        <span class="font-serif text-lg md:text-xl tracking-tight" style="font-family:'DM Serif Display',serif;">Metodología 5S</span>
       </a>
       <div class="hidden md:flex items-center gap-10">
         <a href="#inicio"     class="nav-link">Inicio</a>
@@ -160,17 +159,56 @@
         <a href="#contacto"   class="nav-link">Contacto</a>
       </div>
       <a href="#contacto" class="btn-primary hidden md:inline-block">Contáctanos</a>
+      <!-- Hamburger button (mobile) -->
+      <button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8" aria-label="Abrir menú">
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-1"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-2"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-3"></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-6 flex flex-col gap-5">
+      <a href="#inicio"     class="nav-link" onclick="closeMobileMenu()">Inicio</a>
+      <a href="#que-es"     class="nav-link" onclick="closeMobileMenu()">¿Qué es?</a>
+      <a href="#las-5s"     class="nav-link" onclick="closeMobileMenu()">Las 5S</a>
+      <a href="#beneficios" class="nav-link" onclick="closeMobileMenu()">Beneficios</a>
+      <a href="#contacto"   class="nav-link" onclick="closeMobileMenu()">Contacto</a>
+      <a href="#contacto" class="btn-primary text-center mt-2" onclick="closeMobileMenu()">Contáctanos</a>
     </div>
   </nav>
+  <script>
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const menu   = document.getElementById('mobile-menu');
+      const h1 = document.getElementById('ham-1');
+      const h2 = document.getElementById('ham-2');
+      const h3 = document.getElementById('ham-3');
+      let open = false;
+      toggle.addEventListener('click', function() {
+        open = !open;
+        menu.classList.toggle('hidden', !open);
+        h1.style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+        h2.style.opacity   = open ? '0' : '1';
+        h3.style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+      });
+      window.closeMobileMenu = function() {
+        open = false;
+        menu.classList.add('hidden');
+        h1.style.transform = '';
+        h2.style.opacity   = '1';
+        h3.style.transform = '';
+      };
+    })();
+  </script>
 
   <!-- HERO -->
-  <section id="inicio" class="min-h-screen flex flex-col justify-center px-8 pt-24 pb-16 max-w-7xl mx-auto">
+  <section id="inicio" class="min-h-screen flex flex-col justify-center px-5 md:px-8 pt-24 pb-16 max-w-7xl mx-auto">
     <div class="fade-up">
-      <span class="pill-tag mb-8 block w-fit">Mejora Continua · Metodología Japonesa</span>
-      <h1 class="hero-text text-7xl md:text-9xl text-primary mb-8 max-w-4xl">
+      <span class="pill-tag mb-6 md:mb-8 block w-fit">Mejora Continua · Metodología Japonesa</span>
+      <h1 class="hero-text text-5xl sm:text-7xl md:text-9xl text-primary mb-6 md:mb-8 max-w-4xl">
         Las <em>5S</em> que transforman tu empresa
       </h1>
-      <p class="text-gray-500 text-lg md:text-xl max-w-xl leading-relaxed mb-12">
+      <p class="text-gray-500 text-base md:text-xl max-w-xl leading-relaxed mb-10 md:mb-12">
         Un sistema probado que convierte cualquier espacio de trabajo en un entorno más seguro, ordenado y productivo.
       </p>
       <div class="flex flex-wrap gap-4">
@@ -180,51 +218,51 @@
     </div>
 
     <!-- Stats row -->
-    <div class="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-100 pt-12">
+    <div class="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-gray-100 pt-10 md:pt-12">
       <div>
-        <p class="hero-text text-4xl md:text-5xl mb-1">+30%</p>
+        <p class="hero-text text-3xl md:text-5xl mb-1">+30%</p>
         <p class="section-label">Productividad</p>
       </div>
       <div>
-        <p class="hero-text text-4xl md:text-5xl mb-1">−50%</p>
+        <p class="hero-text text-3xl md:text-5xl mb-1">−50%</p>
         <p class="section-label">Accidentes</p>
       </div>
       <div>
-        <p class="hero-text text-4xl md:text-5xl mb-1">60+</p>
+        <p class="hero-text text-3xl md:text-5xl mb-1">60+</p>
         <p class="section-label">Años de historia</p>
       </div>
       <div>
-        <p class="hero-text text-4xl md:text-5xl mb-1">Global</p>
+        <p class="hero-text text-3xl md:text-5xl mb-1">Global</p>
         <p class="section-label">Alcance mundial</p>
       </div>
     </div>
   </section>
 
   <!-- QUÉ ES -->
-  <section id="que-es" class="py-32 px-8 bg-secondary">
+  <section id="que-es" class="py-20 md:py-32 px-5 md:px-8 bg-gray-950">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <p class="section-label mb-6">Origen &amp; Contexto</p>
-          <h2 class="hero-text text-5xl md:text-6xl mb-8 leading-tight text-white">¿Qué son las 5S?</h2>
-          <div class="divider mb-8"></div>
-          <p class="text-gray-600 text-lg leading-relaxed mb-6">
-            Las <strong class="text-primary font-semibold">5S</strong> es una metodología de origen japonés desarrollada por <strong class="text-primary font-semibold">Toyota</strong> en la década de 1960. Su nombre proviene de cinco palabras japonesas que describen un sistema de organización del lugar de trabajo.
+          <p class="section-label mb-6 text-gray-400">Origen &amp; Contexto</p>
+          <h2 class="hero-text text-4xl md:text-6xl mb-8 leading-tight text-white">¿Qué son las 5S?</h2>
+          <div class="divider mb-8" style="background:#fff;"></div>
+          <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+            Las <strong class="text-white font-semibold">5S</strong> es una metodología de origen japonés desarrollada por <strong class="text-white font-semibold">Toyota</strong> en la década de 1960. Su nombre proviene de cinco palabras japonesas que describen un sistema de organización del lugar de trabajo.
           </p>
-          <p class="text-gray-600 text-lg leading-relaxed">
+          <p class="text-gray-300 text-base md:text-lg leading-relaxed">
             Orientada a la eficiencia, la seguridad y la calidad, hoy es adoptada por empresas de todo el mundo en industrias manufactureras, de servicios y salud.
           </p>
         </div>
         <div class="grid grid-cols-1 gap-6">
-          <div class="bg-white p-8 rounded-sm border border-gray-100">
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
             <p class="section-label mb-3">Origen</p>
             <p class="text-gray-700 leading-relaxed">Desarrollada en Japón como parte del Sistema de Producción Toyota (TPS), base del pensamiento Lean moderno.</p>
           </div>
-          <div class="bg-white p-8 rounded-sm border border-gray-100">
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
             <p class="section-label mb-3">Alcance Global</p>
             <p class="text-gray-700 leading-relaxed">Adoptada por miles de empresas en más de 200 países, desde fábricas hasta hospitales y oficinas.</p>
           </div>
-          <div class="bg-white p-8 rounded-sm border border-gray-100">
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
             <p class="section-label mb-3">Resultados</p>
             <p class="text-gray-700 leading-relaxed">Mejora la productividad hasta un 30% y reduce accidentes laborales de forma significativa y sostenida.</p>
           </div>
@@ -234,23 +272,32 @@
   </section>
 
   <!-- LAS 5S -->
-  <section id="las-5s" class="py-32 px-8 bg-white">
+  <section id="las-5s" class="py-20 md:py-32 px-5 md:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
+      <div class="mb-12 md:mb-16">
         <p class="section-label mb-4">Los cinco pilares</p>
-        <h2 class="hero-text text-5xl md:text-6xl">Las 5 Pilares</h2>
+        <h2 class="hero-text text-4xl md:text-6xl">Las 5 Pilares</h2>
       </div>
 
       <!-- S1 -->
-      <div class="s-card grid md:grid-cols-12 gap-8 items-start">
-        <div class="md:col-span-1">
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block">
           <span class="section-label">01</span>
         </div>
-        <div class="md:col-span-3">
-          <h3 class="hero-text text-3xl mb-1">Seiri</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">Clasificar</p>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              src="https://serviarchivo.com/blog/wp-content/uploads/2025/04/Que-es-Seiri-Gestion-Documental-512x512.png"
+              alt="Clasificar — espacio de trabajo organizado"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="md:col-span-8">
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">01</span>
+          <h3 class="hero-text text-3xl mb-1">Seiri</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Clasificar</p>
           <p class="text-gray-600 leading-relaxed mb-5">
             Separar lo necesario de lo innecesario. El objetivo es eliminar del espacio de trabajo todos los elementos que no son necesarios para las operaciones actuales, reduciendo el desorden y liberando espacio valioso.
           </p>
@@ -263,15 +310,24 @@
       </div>
 
       <!-- S2 -->
-      <div class="s-card grid md:grid-cols-12 gap-8 items-start">
-        <div class="md:col-span-1">
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block">
           <span class="section-label">02</span>
         </div>
-        <div class="md:col-span-3">
-          <h3 class="hero-text text-3xl mb-1">Seiton</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">Ordenar</p>
+        <div class="md:col-span-4 md:order-last">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              src="https://serviarchivo.com/blog/wp-content/uploads/2025/05/ChatGPT-Image-4-jun-2025-21_14_37-512x512.png"
+              alt="Ordenar — herramientas perfectamente organizadas"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="md:col-span-8">
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">02</span>
+          <h3 class="hero-text text-3xl mb-1">Seiton</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Ordenar</p>
           <p class="text-gray-600 leading-relaxed mb-5">
             Organizar los elementos necesarios de manera que sean fáciles de encontrar, usar y devolver a su lugar. Un lugar para cada cosa y cada cosa en su lugar.
           </p>
@@ -284,15 +340,24 @@
       </div>
 
       <!-- S3 -->
-      <div class="s-card grid md:grid-cols-12 gap-8 items-start">
-        <div class="md:col-span-1">
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block">
           <span class="section-label">03</span>
         </div>
-        <div class="md:col-span-3">
-          <h3 class="hero-text text-3xl mb-1">Seiso</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">Limpiar</p>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              src="https://gruporg.tech/web/image/649074-f61d0484/limpiar.jpg"
+              alt="Limpiar — limpieza de instalaciones industriales"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="md:col-span-8">
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">03</span>
+          <h3 class="hero-text text-3xl mb-1">Seiso</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Limpiar</p>
           <p class="text-gray-600 leading-relaxed mb-5">
             Limpiar el entorno de trabajo, incluyendo máquinas y herramientas, para eliminar suciedad, polvo y contaminantes. La limpieza también es una forma de inspección que detecta problemas tempranamente.
           </p>
@@ -305,15 +370,24 @@
       </div>
 
       <!-- S4 -->
-      <div class="s-card grid md:grid-cols-12 gap-8 items-start">
-        <div class="md:col-span-1">
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block">
           <span class="section-label">04</span>
         </div>
-        <div class="md:col-span-3">
-          <h3 class="hero-text text-3xl mb-1">Seiketsu</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">Estandarizar</p>
+        <div class="md:col-span-4 md:order-last">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              src="https://gruporg.tech/web/image/658290-269f7966/estandarizaci%C3%B3n.png"
+              alt="Estandarizar — documentación y procedimientos"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="md:col-span-8">
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">04</span>
+          <h3 class="hero-text text-3xl mb-1">Seiketsu</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Estandarizar</p>
           <p class="text-gray-600 leading-relaxed mb-5">
             Mantener y consolidar los logros de las tres primeras S mediante la creación de estándares, procedimientos y controles visuales que garanticen la consistencia.
           </p>
@@ -326,15 +400,24 @@
       </div>
 
       <!-- S5 -->
-      <div class="s-card grid md:grid-cols-12 gap-8 items-start">
-        <div class="md:col-span-1">
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block">
           <span class="section-label">05</span>
         </div>
-        <div class="md:col-span-3">
-          <h3 class="hero-text text-3xl mb-1">Shitsuke</h3>
-          <p class="text-gray-400 text-sm uppercase tracking-widest">Disciplina</p>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img
+              src="https://losutopicosalimentandoelblog.weebly.com/uploads/1/3/6/9/136930186/editor/motivado.jpg?1617475982"
+              alt="Disciplina — equipo comprometido con la mejora continua"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="md:col-span-8">
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">05</span>
+          <h3 class="hero-text text-3xl mb-1">Shitsuke</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Disciplina</p>
           <p class="text-gray-600 leading-relaxed mb-5">
             Convertir las buenas prácticas en hábitos. Implica el compromiso de todos los miembros de la organización para mantener y mejorar continuamente los estándares establecidos.
           </p>
@@ -349,11 +432,11 @@
   </section>
 
   <!-- BENEFICIOS -->
-  <section id="beneficios" class="py-32 px-8 bg-primary text-white">
+  <section id="beneficios" class="py-20 md:py-32 px-5 md:px-8 bg-primary text-white">
     <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
+      <div class="mb-12 md:mb-16">
         <p class="section-label mb-4 text-gray-400">Por qué implementarlas</p>
-        <h2 class="hero-text text-5xl md:text-6xl text-white">Beneficios reales,<br/><em>resultados medibles</em></h2>
+        <h2 class="hero-text text-4xl md:text-6xl text-white">Beneficios reales,<br/><em>resultados medibles</em></h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="benefit-card border-gray-700 hover:border-white">
@@ -403,13 +486,13 @@
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="py-32 px-8 bg-white">
+  <section id="contacto" class="py-20 md:py-32 px-5 md:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-20 items-start">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
         <!-- Left -->
         <div>
           <p class="section-label mb-6">Escríbenos</p>
-          <h2 class="hero-text text-5xl md:text-6xl mb-6 leading-tight">Envíanos un<br/><em>Mensaje</em></h2>
+          <h2 class="hero-text text-4xl md:text-6xl mb-6 leading-tight">Envíanos un<br/><em>Mensaje</em></h2>
           <div class="divider mb-8"></div>
           <p class="text-gray-500 leading-relaxed mb-10">
             ¿Tienes preguntas sobre las 5S? Escríbenos y te responderemos a la brevedad.
@@ -485,7 +568,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-primary text-white py-16 px-8">
+  <footer class="bg-primary text-white py-12 md:py-16 px-5 md:px-8">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-gray-800 pb-10 mb-10">
         <span class="hero-text text-2xl">Metodología 5S</span>
@@ -534,7 +617,7 @@
 
     /* Panel del chat */
     #wa-panel {
-      width: 320px;
+      width: min(320px, calc(100vw - 40px));
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18);
