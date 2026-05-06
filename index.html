@@ -601,21 +601,41 @@
         </div>
       </div>
 
-      <!-- Download Button -->
-      <a 
-        href="composeApp-release.apk" 
-        download="Metodologia-5S.apk"
-        class="btn-primary inline-flex items-center gap-3 text-base"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Descargar para Android
-      </a>
+      <!-- Download Button + QR -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
+        <!-- Botón de descarga -->
+        <a 
+          href="composeApp-release.apk" 
+          download="Metodologia-5S.apk"
+          class="btn-primary inline-flex items-center gap-3 text-base"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Descargar para Android
+        </a>
+
+        <!-- Separador vertical (solo desktop) -->
+        <div class="hidden sm:block w-px h-20 bg-gray-200"></div>
+        <!-- Separador horizontal (solo mobile) -->
+        <div class="sm:hidden w-16 h-px bg-gray-200"></div>
+
+        <!-- QR Code -->
+        <div class="flex flex-col items-center gap-3">
+          <div 
+            id="app-qr" 
+            class="p-2 border border-gray-200 rounded-lg bg-white shadow-sm"
+            style="line-height:0;"
+          ></div>
+          <p class="text-xs text-gray-500 tracking-wide max-w-[130px] leading-relaxed">
+            Escanea para descargar en tu teléfono
+          </p>
+        </div>
+      </div>
       
-      <p class="text-xs text-gray-400 mt-6">Compatible con Android 5.0 o superior · Tamaño: ~10 MB</p>
+      <p class="text-xs text-gray-400 mt-8">Compatible con Android 5.0 o superior · Tamaño: ~10 MB</p>
     </div>
   </section>
 
@@ -833,6 +853,39 @@
 
       send.addEventListener('click', sendMessage);
       input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+    })();
+  </script>
+
+  <!-- QRCode.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script>
+    (function () {
+      var apkPath = 'composeApp-release.apk';
+      var origin  = window.location.origin;
+      var dir     = window.location.pathname.replace(/\/[^/]*$/, '/');
+      // Normaliza la ruta: evita doble barra si pathname ya termina en /
+      if (dir === '/') dir = '/';
+      var apkUrl  = origin + dir + apkPath;
+
+      var isLocal = (origin === 'null' || origin.indexOf('localhost') !== -1 || origin.indexOf('127.0.0.1') !== -1 || origin.indexOf('file://') !== -1);
+
+      QRCode.toCanvas(apkUrl, {
+        width: 120,
+        margin: 1,
+        color: { dark: '#000000', light: '#ffffff' }
+      }, function (err, canvas) {
+        if (err) return;
+        canvas.style.borderRadius = '4px';
+        document.getElementById('app-qr').appendChild(canvas);
+
+        // Aviso solo en entorno local
+        if (isLocal) {
+          var warn = document.createElement('p');
+          warn.style.cssText = 'font-size:0.65rem;color:#f59e0b;margin-top:6px;max-width:130px;line-height:1.4;text-align:center;';
+          warn.textContent = '⚠ Solo funciona cuando el sitio esté publicado en internet';
+          document.getElementById('app-qr').parentElement.appendChild(warn);
+        }
+      });
     })();
   </script>
 
