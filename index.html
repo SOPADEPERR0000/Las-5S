@@ -856,36 +856,44 @@
     })();
   </script>
 
-  <!-- QRCode.js -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <!-- QR Code generator -->
   <script>
     (function () {
-      var apkPath = 'composeApp-release.apk';
-      var origin  = window.location.origin;
-      var dir     = window.location.pathname.replace(/\/[^/]*$/, '/');
-      // Normaliza la ruta: evita doble barra si pathname ya termina en /
-      if (dir === '/') dir = '/';
-      var apkUrl  = origin + dir + apkPath;
+      var container = document.getElementById('app-qr');
 
-      var isLocal = (origin === 'null' || origin.indexOf('localhost') !== -1 || origin.indexOf('127.0.0.1') !== -1 || origin.indexOf('file://') !== -1);
+      // Construye la URL del APK según el entorno
+      var origin = window.location.origin;
+      var isLocal = (origin === 'null' || origin === '' ||
+                     origin.indexOf('localhost') !== -1 ||
+                     origin.indexOf('127.0.0.1') !== -1);
 
-      QRCode.toCanvas(apkUrl, {
-        width: 120,
-        margin: 1,
-        color: { dark: '#000000', light: '#ffffff' }
-      }, function (err, canvas) {
-        if (err) return;
-        canvas.style.borderRadius = '4px';
-        document.getElementById('app-qr').appendChild(canvas);
+      var apkUrl;
+      if (isLocal || origin === 'null') {
+        // En local usamos la ruta relativa; el QR apuntará a ella
+        // El usuario deberá servir el sitio por HTTP para que funcione en móvil
+        apkUrl = 'composeApp-release.apk';
+      } else {
+        var dir = window.location.pathname.replace(/\/[^/]*$/, '/');
+        apkUrl  = origin + dir + 'composeApp-release.apk';
+      }
 
-        // Aviso solo en entorno local
-        if (isLocal) {
-          var warn = document.createElement('p');
-          warn.style.cssText = 'font-size:0.65rem;color:#f59e0b;margin-top:6px;max-width:130px;line-height:1.4;text-align:center;';
-          warn.textContent = '⚠ Solo funciona cuando el sitio esté publicado en internet';
-          document.getElementById('app-qr').parentElement.appendChild(warn);
-        }
-      });
+      // Usamos la API pública de QR Server (no requiere JS externo)
+      var encoded = encodeURIComponent(apkUrl);
+      var img = document.createElement('img');
+      img.src    = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=6&data=' + encoded;
+      img.alt    = 'QR para descargar la app';
+      img.width  = 120;
+      img.height = 120;
+      img.style.cssText = 'border-radius:4px;display:block;';
+      container.appendChild(img);
+
+      // Aviso si es entorno local
+      if (isLocal) {
+        var warn = document.createElement('p');
+        warn.style.cssText = 'font-size:0.65rem;color:#f59e0b;margin-top:6px;max-width:130px;line-height:1.4;text-align:center;';
+        warn.textContent = '⚠ Sirve el sitio por HTTP para que el QR funcione en móvil';
+        container.parentElement.appendChild(warn);
+      }
     })();
   </script>
 
