@@ -1,12 +1,731 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Las 5S - Metodología de Mejora Continua</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config = {theme: {extend: {colors: {primary: '#000000',secondary: '#000000',accent: '#000000',},fontFamily: {sans: ['DM Sans', 'sans-serif'],serif: ['DM Serif Display', 'serif'],},letterSpacing: {widest2: '0.25em',}},},}</script><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" /><style>html { scroll-behavior: smooth; }.nav-link {position: relative;font-size: 0.8rem;letter-spacing: 0.08em;text-transform: uppercase;font-weight: 500;color: #000000;transition: opacity 0.2s;}.nav-link::after {content: '';position: absolute;bottom: -2px;left: 0;width: 0;height: 1px;background: #2D7A4F;transition: width 0.3s ease;}.nav-link:hover::after { width: 100%; }.hero-text {font-family: 'DM Serif Display', serif;line-height: 1.05;}.section-label {font-size: 0.7rem;letter-spacing: 0.2em;text-transform: uppercase;font-weight: 500;color: #888;}.pill-tag {display: inline-block;border: 1px solid #000000;font-size: 0.7rem;letter-spacing: 0.15em;text-transform: uppercase;padding: 0.35rem 0.9rem;border-radius: 999px;font-weight: 500;}.btn-primary {display: inline-block;background: #000000;color: #fff;font-size: 0.8rem;letter-spacing: 0.1em;text-transform: uppercase;font-weight: 500;padding: 0.85rem 2.2rem;border-radius: 999px;transition: background 0.2s, color 0.2s;}.btn-primary:hover { background: #8b8b8b; }.btn-outline {display: inline-block;border: 1px solid #000000;color: #000000;font-size: 0.8rem;letter-spacing: 0.1em;text-transform: uppercase;font-weight: 500;padding: 0.85rem 2.2rem;border-radius: 999px;transition: background 0.2s, color 0.2s;}.btn-outline:hover { background: #000000; color: #fff; }.s-card {border-top: 1px solid #e5e5e5;padding: 2.5rem 0;transition: background 0.2s;}.s-card:last-child { border-bottom: 1px solid #e5e5e5; }.benefit-card {border: 1px solid #e5e5e5;border-radius: 4px;padding: 2rem;transition: border-color 0.2s, transform 0.2s;}.benefit-card:hover { border-color: #000000; transform: translateY(-3px); }input, select, textarea {border: 1px solid #d4d4d4;border-radius: 4px;padding: 0.85rem 1rem;font-size: 0.9rem;width: 100%;background: #fff;transition: border-color 0.2s;font-family: 'DM Sans', sans-serif;color: #000000;}input:focus, select:focus, textarea:focus {outline: none;border-color: #000000;}input::placeholder, textarea::placeholder { color: #aaa; }.divider { width: 40px; height: 1px; background:#000000; }@keyframes fadeUp {from { opacity: 0; transform: translateY(24px); }to   { opacity: 1; transform: translateY(0); }}.fade-up { animation: fadeUp 0.7s ease both; }</style></head>
-<body class="bg-white text-primary font-sans antialiased"><!-- NAVBAR --><nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100"><div class="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between"><a href="#inicio" class="flex items-center gap-2"><span class="font-serif text-lg md:text-xl tracking-tight" style="font-family:'DM Serif Display',serif;">Metodología 5S</span></a><div class="hidden md:flex items-center gap-10"><a href="#inicio"     class="nav-link">Inicio</a><a href="#que-es"     class="nav-link">¿Qué es?</a><a href="#las-5s"     class="nav-link">Las 5S</a><a href="#beneficios" class="nav-link">Beneficios</a><a href="#app"        class="nav-link">App</a><a href="#contacto"   class="nav-link">Contacto</a></div><a href="#contacto" class="btn-primary hidden md:inline-block">Contáctanos</a><button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8" aria-label="Abrir menú"><span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-1"></span><span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-2"></span><span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-3"></span></button></div><div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-6 flex flex-col gap-5"><a href="#inicio" class="nav-link" onclick="closeMobileMenu()">Inicio</a><a href="#que-es" class="nav-link" onclick="closeMobileMenu()">¿Qué es?</a><a href="#las-5s" class="nav-link" onclick="closeMobileMenu()">Las 5S</a><a href="#beneficios" class="nav-link" onclick="closeMobileMenu()">Beneficios</a><a href="#app" class="nav-link" onclick="closeMobileMenu()">App</a><a href="#contacto" class="nav-link" onclick="closeMobileMenu()">Contacto</a><a href="#contacto" class="btn-primary text-center mt-2" onclick="closeMobileMenu()">Contáctanos</a></div></nav><script>(function() {const toggle = document.getElementById('nav-toggle');const menu=document.getElementById('mobile-menu');const h1=document.getElementById('ham-1');const h2=document.getElementById('ham-2');const h3=document.getElementById('ham-3');let open=false;toggle.addEventListener('click', function() {open=!open;menu.classList.toggle('hidden', !open);h1.style.transform=open?'translateY(8px) rotate(45deg)':'';h2.style.opacity=open?'0':'1';h3.style.transform=open?'translateY(-8px) rotate(-45deg)':'';});window.closeMobileMenu=function() {open=false;menu.classList.add('hidden');h1.style.transform='';h2.style.opacity='1';h3.style.transform='';};})();</script>
-<!-- HERO --><section id="inicio" class="min-h-screen flex flex-col justify-center px-5 md:px-8 pt-24 pb-16 max-w-7xl mx-auto"><div class="fade-up"><span class="pill-tag mb-6 md:mb-8 block w-fit">Mejora Continua · Metodología Japonesa</span><h1 class="hero-text text-5xl sm:text-7xl md:text-9xl text-primary mb-6 md:mb-8 max-w-4xl">Las <em>5S</em> que transforman tu empresa</h1><p class="text-gray-500 text-base md:text-xl max-w-xl leading-relaxed mb-10 md:mb-12">Un sistema probado que convierte cualquier espacio de trabajo en un entorno más seguro, ordenado y productivo.</p><div class="flex flex-wrap gap-4"><a href="#las-5s" class="btn-primary">Explorar las 5S</a><a href="#contacto" class="btn-outline">Contáctanos</a></div></div><div class="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-gray-100 pt-10 md:pt-12"><div><p class="hero-text text-3xl md:text-5xl mb-1">+30%</p><p class="section-label">Productividad</p></div><div><p class="hero-text text-3xl md:text-5xl mb-1">−50%</p><p class="section-label">Accidentes</p></div><div><p class="hero-text text-3xl md:text-5xl mb-1">60+</p><p class="section-label">Años de historia</p></div><div><p class="hero-text text-3xl md:text-5xl mb-1">Global</p><p class="section-label">Alcance mundial</p></div></div></section>
-<!-- QUÉ ES --><section id="que-es" class="py-20 md:py-32 px-5 md:px-8 bg-gray-950"><div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center"><div><p class="section-label mb-6 text-gray-400">Origen &amp; Contexto</p><h2 class="hero-text text-4xl md:text-6xl mb-8 leading-tight text-white">¿Qué son las 5S?</h2><div class="divider mb-8" style="background:#fff;"></div><p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">Las <strong class="text-white font-semibold">5S</strong> es una metodología de origen japonés desarrollada por <strong class="text-white font-semibold">Toyota</strong> en la década de 1960. Su nombre proviene de cinco palabras japonesas que describen un sistema de organización del lugar de trabajo.</p><p class="text-gray-300 text-base md:text-lg leading-relaxed">Orientada a la eficiencia, la seguridad y la calidad, hoy es adoptada por empresas de todo el mundo en industrias manufactureras, de servicios y salud.</p></div><div class="grid grid-cols-1 gap-6"><div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100"><p class="section-label mb-3">Origen</p><p class="text-gray-700 leading-relaxed">Desarrollada en Japón como parte del Sistema de Producción Toyota (TPS), base del pensamiento Lean moderno.</p></div><div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100"><p class="section-label mb-3">Alcance Global</p><p class="text-gray-700 leading-relaxed">Adoptada por miles de empresas en más de 200 países, desde fábricas hasta hospitales y oficinas.</p></div><div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100"><p class="section-label mb-3">Resultados</p><p class="text-gray-700 leading-relaxed">Mejora la productividad hasta un 30% y reduce accidentes laborales de forma significativa y sostenida.</p></div></div></div></div></section>
-<!-- LAS 5S --><section id="las-5s" class="py-20 md:py-32 px-5 md:px-8 bg-white"><div class="max-w-7xl mx-auto"><div class="mb-12 md:mb-16"><p class="section-label mb-4">Los cinco pilares</p><h2 class="hero-text text-4xl md:text-6xl">Las 5 Pilares</h2></div><div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center"><div class="md:col-span-1 hidden md:block"><span class="section-label">01</span></div><div class="md:col-span-4"><div class="overflow-hidden rounded-lg aspect-[4/3]"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIfZOB8B44Upk0OXaAzqoDkE3NhK9uB1Ejow&s" alt="Clasificar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy"/></div></div><div class="md:col-span-7"><span class="section-label md:hidden mb-2 block">01</span><h3 class="hero-text text-3xl mb-1">Seiri</h3><p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Clasificar</p><p class="text-gray-600 leading-relaxed mb-5">Separar lo necesario de lo innecesario. El objetivo es eliminar del espacio de trabajo todos los elementos que no son necesarios para las operaciones actuales, reduciendo el desorden y liberando espacio valioso.</p><ul class="space-y-2 text-sm text-gray-500"><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Identificar elementos innecesarios con tarjetas rojas</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Eliminar, reubicar o reciclar lo que no se usa</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Mantener solo lo esencial en el área de trabajo</li></ul></div></div><div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center"><div class="md:col-span-1 hidden md:block"><span class="section-label">02</span></div><div class="md:col-span-4 md:order-last"><div class="overflow-hidden rounded-lg aspect-[4/3]"><img src="https://www.plandemejora.com/wp-content/uploads/seiton.png" alt="Ordenar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy"/></div></div><div class="md:col-span-7"><span class="section-label md:hidden mb-2 block">02</span><h3 class="hero-text text-3xl mb-1">Seiton</h3><p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Ordenar</p><p class="text-gray-600 leading-relaxed mb-5">Organizar los elementos necesarios de manera que sean fáciles de encontrar, usar y devolver a su lugar. Un lugar para cada cosa y cada cosa en su lugar.</p><ul class="space-y-2 text-sm text-gray-500"><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Asignar un lugar fijo a cada herramienta o material</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Usar etiquetas, colores y señalización visual</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Organizar por frecuencia de uso y ergonomía</li></ul></div></div><div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center"><div class="md:col-span-1 hidden md:block"><span class="section-label">03</span></div><div class="md:col-span-4"><div class="overflow-hidden rounded-lg aspect-[4/3]"><img src="https://gruporg.tech/web/image/649074-f61d0484/limpiar.jpg" alt="Limpiar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy"/></div></div><div class="md:col-span-7"><span class="section-label md:hidden mb-2 block">03</span><h3 class="hero-text text-3xl mb-1">Seiso</h3><p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Limpiar</p><p class="text-gray-600 leading-relaxed mb-5">Limpiar el entorno de trabajo, incluyendo máquinas y herramientas, para eliminar suciedad, polvo y contaminantes. La limpieza también es una forma de inspección que detecta problemas tempranamente.</p><ul class="space-y-2 text-sm text-gray-500"><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Establecer rutinas diarias de limpieza</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Identificar y eliminar fuentes de suciedad</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Usar la limpieza como herramienta de inspección</li></ul></div></div><div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center"><div class="md:col-span-1 hidden md:block"><span class="section-label">04</span></div><div class="md:col-span-4 md:order-last"><div class="overflow-hidden rounded-lg aspect-[4/3]"><img src="https://gruporg.tech/web/image/658290-269f7966/estandarizaci%C3%B3n.png" alt="Estandarizar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy"/></div></div><div class="md:col-span-7"><span class="section-label md:hidden mb-2 block">04</span><h3 class="hero-text text-3xl mb-1">Seiketsu</h3><p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Estandarizar</p><p class="text-gray-600 leading-relaxed mb-5">Mantener y consolidar los logros de las tres primeras S mediante la creación de estándares, procedimientos y controles visuales que garanticen la consistencia.</p><ul class="space-y-2 text-sm text-gray-500"><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Documentar procedimientos y estándares visuales</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Crear listas de verificación y auditorías periódicas</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Capacitar al personal en los nuevos estándares</li></ul></div></div><div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center"><div class="md:col-span-1 hidden md:block"><span class="section-label">05</span></div><div class="md:col-span-4"><div class="overflow-hidden rounded-lg aspect-[4/3]"><img src="https://losutopicosalimentandoelblog.weebly.com/uploads/1/3/6/9/136930186/editor/motivado.jpg?1617475982" alt="Disciplina" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy"/></div></div><div class="md:col-span-7"><span class="section-label md:hidden mb-2 block">05</span><h3 class="hero-text text-3xl mb-1">Shitsuke</h3><p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Disciplina</p><p class="text-gray-600 leading-relaxed mb-5">Convertir las buenas prácticas en hábitos. Implica el compromiso de todos los miembros de la organización para mantener y mejorar continuamente los estándares establecidos.</p><ul class="space-y-2 text-sm text-gray-500"><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Fomentar una cultura de mejora continua</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Realizar auditorías y reconocer logros</li><li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Involucrar a toda la organización en el proceso</li></ul></div></div></div></section>
-<!-- BENEFICIOS --><section id="beneficios" class="py-20 md:py-32 px-5 md:px-8 bg-primary text-white"><div class="max-w-7xl mx-auto"><div class="mb-12 md:mb-16"><p class="section-label mb-4 text-gray-400">Por qué implementarlas</p><h2 class="hero-text text-4xl md:text-6xl text-white">Beneficios reales,<br/><em>resultados medibles</em></h2></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Mayor Productividad</h3><p class="text-gray-400 text-sm leading-relaxed">Reducción de tiempos de búsqueda y movimientos innecesarios en el flujo de trabajo.</p></div><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Más Seguridad</h3><p class="text-gray-400 text-sm leading-relaxed">Espacios limpios y ordenados reducen accidentes laborales de forma significativa.</p></div><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Mejor Calidad</h3><p class="text-gray-400 text-sm leading-relaxed">Entornos controlados minimizan errores y defectos en los procesos productivos.</p></div><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Satisfacción Laboral</h3><p class="text-gray-400 text-sm leading-relaxed">Ambientes agradables mejoran el bienestar y la motivación del equipo humano.</p></div><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Reducción de Costos</h3><p class="text-gray-400 text-sm leading-relaxed">Menos desperdicio, menor inventario y mejor aprovechamiento de los recursos disponibles.</p></div><div class="benefit-card border-gray-700 hover:border-white"><div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h3 class="font-semibold text-lg mb-2 text-white">Mejora Continua</h3><p class="text-gray-400 text-sm leading-relaxed">Base sólida para implementar otras metodologías Lean, Kaizen y Six Sigma.</p></div></div></div></section>
-<!-- CONTACTO --><section id="contacto" class="py-20 md:py-32 px-5 md:px-8 bg-white"><div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start"><div><p class="section-label mb-6">Escríbenos</p><h2 class="hero-text text-4xl md:text-6xl mb-6 leading-tight">Envíanos un<br/><em>Mensaje</em></h2><div class="divider mb-8"></div><p class="text-gray-500 leading-relaxed mb-10">¿Tienes preguntas sobre las 5S? Escríbenos y te responderemos a la brevedad.</p><div class="space-y-6 text-sm text-gray-500"><div><p class="section-label mb-1">Respuesta</p><p>En menos de 24 horas hábiles</p></div><div><p class="section-label mb-1">Servicios</p><p>Consultoría · Capacitación · Auditoría</p></div></div></div><div><div id="alert" class="hidden mb-6 px-5 py-4 rounded text-sm font-medium"></div><form id="contactForm" class="space-y-5"><div class="grid grid-cols-1 sm:grid-cols-2 gap-5"><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Nombre <span class="text-red-400">*</span></label><input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" /></div><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Apellido</label><input type="text" id="apellido" name="apellido" placeholder="Tu apellido" /></div></div><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Correo Electrónico <span class="text-red-400">*</span></label><input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" /></div><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Empresa / Organización</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa (opcional)" /></div><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Asunto <span class="text-red-400">*</span></label><select id="asunto" name="asunto" required><option value="">Selecciona un asunto</option><option value="consulta">Consulta general sobre 5S</option><option value="implementacion">Implementación en mi empresa</option><option value="capacitacion">Capacitación y talleres</option><option value="auditoria">Auditoría 5S</option><option value="otro">Otro</option></select></div><div><label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Mensaje <span class="text-red-400">*</span></label><textarea id="mensaje" name="mensaje" required rows="5" placeholder="Escribe tu mensaje aquí..."></textarea></div><button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center gap-2 rounded" style="border-radius:4px;"><span id="btnText">Enviar Mensaje</span><span id="btnSpinner" class="hidden"><svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg></span></button></form></div></div></div></section>
-<!-- DESCARGA APP — CAMBIOS APLICADOS: specs actualizadas + QR con URL fija --><section id="app" class="py-20 md:py-32 px-5 md:px-8 bg-gray-50"><div class="max-w-5xl mx-auto text-center"><p class="section-label mb-6">Lleva las 5S contigo</p><h2 class="hero-text text-4xl md:text-6xl mb-6 leading-tight">Descarga nuestra<br/><em>Aplicación Móvil</em></h2><div class="divider mx-auto mb-8"></div><p class="text-gray-600 text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">Accede a guías, checklists y herramientas de auditoría 5S directamente desde tu dispositivo Android. Perfecta para implementar y mantener la metodología en tu empresa.</p><div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto"><div class="flex flex-col items-center gap-3"><div class="w-12 h-12 rounded-full bg-black flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><p class="text-sm font-medium text-gray-700">Guías Interactivas</p></div><div class="flex flex-col items-center gap-3"><div class="w-12 h-12 rounded-full bg-black flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><p class="text-sm font-medium text-gray-700">Checklists 5S</p></div><div class="flex flex-col items-center gap-3"><div class="w-12 h-12 rounded-full bg-black flex items-center justify-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><p class="text-sm font-medium text-gray-700">Auditorías Rápidas</p></div></div><div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12"><a href="https://raw.githubusercontent.com/SOPADEPERR0000/Las-5S/main/composeApp-release.apk" download="Metodologia-5S.apk" class="btn-primary inline-flex items-center gap-3 text-base"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Descargar para Android</a><div class="hidden sm:block w-px h-20 bg-gray-200"></div><div class="sm:hidden w-16 h-px bg-gray-200"></div><div class="flex flex-col items-center gap-3"><div id="app-qr" class="p-2 border border-gray-200 rounded-lg bg-white shadow-sm" style="line-height:0;"></div><p class="text-xs text-gray-500 tracking-wide max-w-[130px] leading-relaxed">Escanea para descargar en tu teléfono</p></div></div>
-<!-- SPECS ACTUALIZADAS --><p class="text-xs text-gray-400 mt-8">Compatible con Android 7.0 (API 24) o superior · Tamaño: ~13.7 MB · Versión 1.0</p></div></section><!-- FOOTER --><footer class="bg-primary text-white py-12 md:py-16 px-5 md:px-8"><div class="max-w-7xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-gray-800 pb-10 mb-10"><span class="hero-text text-2xl">Metodología 5S</span><div class="flex flex-wrap gap-8 text-sm text-gray-400"><a href="#inicio" class="hover:text-white transition-colors">Inicio</a><a href="#que-es" class="hover:text-white transition-colors">¿Qué es?</a><a href="#las-5s" class="hover:text-white transition-colors">Las 5S</a><a href="#beneficios" class="hover:text-white transition-colors">Beneficios</a><a href="#app" class="hover:text-white transition-colors">App</a><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></div></div><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-gray-600"><p>Seiri · Seiton · Seiso · Seiketsu · Shitsuke</p><p>© 2026 Metodología 5S. Todos los derechos reservados.</p></div></div></footer>
-<!-- WHATSAPP FLOATING WIDGET --><style>#wa-widget { position: fixed; bottom: 28px; right: 28px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }#wa-btn {width: 58px; height: 58px; border-radius: 50%;background: #25d366;box-shadow: 0 4px 20px rgba(37,211,102,0.45);display: flex; align-items: center; justify-content: center;cursor: pointer; border: none;transition: transform 0.2s, box-shadow 0.2s;}#wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }#wa-btn svg { width: 30px; height: 30px; }#wa-tooltip {background: #242424; color: #fff;font-size: 0.75rem; font-family: 'DM Sans', sans-serif;letter-spacing: 0.04em;padding: 6px 14px; border-radius: 999px;white-space: nowrap; pointer-events: none;opacity: 0; transform: translateX(8px);transition: opacity 0.2s, transform 0.2s;}#wa-widget:hover #wa-tooltip { opacity: 1; transform: translateX(0); }#wa-panel {width: min(320px, calc(100vw - 40px));background: #fff;border-radius: 16px;box-shadow: 0 8px 40px rgba(0,0,0,0.18);overflow: hidden;display: none;flex-direction: column;transform-origin: bottom right;animation: waPop 0.25s ease;}#wa-panel.open { display: flex; }@keyframes waPop {from { opacity: 0; transform: scale(0.85); }to { opacity: 1; transform: scale(1); }}#wa-header {background: #25d366;padding: 16px 18px;display: flex; align-items: center; gap: 12px;}#wa-avatar {width: 42px; height: 42px; border-radius: 50%;background: #128c4a;display: flex; align-items: center; justify-content: center;font-size: 1.2rem; flex-shrink: 0;}#wa-header-info { flex: 1; }#wa-header-name { font-weight: 600; font-size: 0.95rem; color: #fff; font-family: 'DM Sans', sans-serif; }#wa-header-status { font-size: 0.72rem; color: rgba(255,255,255,0.85); font-family: 'DM Sans', sans-serif; }#wa-close {background: none; border: none; cursor: pointer;color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1;padding: 2px 4px; transition: color 0.15s;}#wa-close:hover { color: #fff; }#wa-body { padding: 18px 16px; background: #ece5dd; }#wa-bubble {background: #fff;border-radius: 0 12px 12px 12px;padding: 12px 14px;font-size: 0.85rem; line-height: 1.55;color: #333; font-family: 'DM Sans', sans-serif;box-shadow: 0 1px 3px rgba(0,0,0,0.1);position: relative;}#wa-bubble::before {content: '';position: absolute; top: 0; left: -8px;border-width: 0 8px 8px 0;border-style: solid;border-color: transparent #fff transparent transparent;}#wa-time { text-align: right; font-size: 0.68rem; color: #999; margin-top: 4px; font-family: 'DM Sans', sans-serif; }#wa-suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }.wa-chip {background: #fff; border: 1px solid #ddd;border-radius: 999px; padding: 5px 12px;font-size: 0.75rem; color: #128c4a; font-family: 'DM Sans', sans-serif;cursor: pointer; transition: background 0.15s, border-color 0.15s;text-decoration: none; display: inline-block;}.wa-chip:hover { background: #f0fdf4; border-color: #25d366; }#wa-footer { padding: 12px 14px; border-top: 1px solid #f0f0f0; display: flex; gap: 8px; align-items: center; }#wa-input {flex: 1; border: 1px solid #e5e5e5; border-radius: 999px;padding: 8px 14px; font-size: 0.82rem; font-family: 'DM Sans', sans-serif;outline: none; transition: border-color 0.2s; color: #A3BD96;}#wa-input:focus { border-color: #25d366; }#wa-send {width: 36px; height: 36px; border-radius: 50%;background: #25d366; border: none; cursor: pointer;display: flex; align-items: center; justify-content: center;transition: background 0.2s; flex-shrink: 0;}#wa-send:hover { background: #1ebe5d; }#wa-send svg { width: 16px; height: 16px; }</style>
-<div id="wa-widget"><div id="wa-panel"><div id="wa-header"><div id="wa-avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div id="wa-header-info"><div id="wa-header-name">Metodología 5S</div><div id="wa-header-status">● En línea</div></div><button id="wa-close" aria-label="Cerrar chat">✕</button></div><div id="wa-body"><div id="wa-bubble">¡Hola! Bienvenido a <strong>Metodología 5S</strong>.<br/><br/>¿En qué podemos ayudarte hoy?<div id="wa-time">ahora</div></div><div id="wa-suggestions"><a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20me%20interesa%20implementar%20las%205S%20en%20mi%20empresa" target="_blank" rel="noopener">Implementar 5S</a><a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20capacitaci%C3%B3n%205S" target="_blank" rel="noopener">Capacitación</a><a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20necesito%20una%20auditor%C3%ADa%205S" target="_blank" rel="noopener">Auditoría 5S</a><a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20tengo%20una%20consulta%20general" target="_blank" rel="noopener">Consulta general</a></div></div><div id="wa-footer"><input id="wa-input" type="text" placeholder="Escribe un mensaje..." /><button id="wa-send" aria-label="Enviar por WhatsApp"><svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button></div></div><div id="wa-tooltip">Chatea con nosotros</div><button id="wa-btn" aria-label="Abrir chat de WhatsApp"><svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.49.648 4.83 1.782 6.86L2 30l7.34-1.762A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.43 11.43 0 01-5.824-1.594l-.418-.248-4.354 1.046 1.074-4.24-.272-.434A11.46 11.46 0 014.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5zm6.29-8.61c-.344-.172-2.036-1.004-2.352-1.118-.316-.114-.546-.172-.776.172-.23.344-.89 1.118-1.09 1.348-.2.23-.4.258-.744.086-.344-.172-1.452-.536-2.766-1.708-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.872-1.064-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43-.316.344-1.204 1.176-1.204 2.868s1.232 3.326 1.404 3.556c.172.23 2.426 3.706 5.878 5.196.822.354 1.464.566 1.964.724.824.262 1.574.224 2.168.136.66-.098 2.036-.832 2.322-1.636.286-.804.286-1.492.2-1.636-.084-.144-.314-.23-.658-.4z"/></svg></button></div>
-<script>(function () {const btn=document.getElementById('wa-btn');const panel=document.getElementById('wa-panel');const close=document.getElementById('wa-close');const input=document.getElementById('wa-input');const send=document.getElementById('wa-send');const WA_NUM='527757577249';function openPanel() { panel.classList.add('open'); btn.style.display='none'; }function closePanel() { panel.classList.remove('open'); btn.style.display='flex'; }btn.addEventListener('click', openPanel);close.addEventListener('click', closePanel);function sendMessage() {const text=input.value.trim();if (!text) return;const url=`https://wa.me/${WA_NUM}?text=${encodeURIComponent(text)}`;window.open(url, '_blank', 'noopener');input.value='';}send.addEventListener('click', sendMessage);input.addEventListener('keydown', (e) => { if (e.key==='Enter') sendMessage(); });})();</script><!-- QR Code generator — URL fija de GitHub --><script>(function () {var container=document.getElementById('app-qr');var apkUrl='https://raw.githubusercontent.com/SOPADEPERR0000/Las-5S/main/composeApp-release.apk';var img=document.createElement('img');img.src='https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=6&data='+encodeURIComponent(apkUrl);img.alt='QR para descargar la app';img.width=120;img.height=120;img.style.cssText='border-radius:4px;display:block;';container.appendChild(img);})();</script><!-- Supabase SDK --><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><!-- EmailJS SDK --><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script src="supabase.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las 5S - Metodología de Mejora Continua</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#000000', secondary: '#000000', accent: '#000000' },
+          fontFamily: { sans: ['DM Sans', 'sans-serif'], serif: ['DM Serif Display', 'serif'] },
+          letterSpacing: { widest2: '0.25em' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    html { scroll-behavior: smooth; }
+    .nav-link { position: relative; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: #000; transition: opacity 0.2s; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #2D7A4F; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .hero-text { font-family: 'DM Serif Display', serif; line-height: 1.05; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: #888; }
+    .pill-tag { display: inline-block; border: 1px solid #000; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 999px; font-weight: 500; }
+    .btn-primary { display: inline-block; background: #000; color: #fff; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; padding: 0.85rem 2.2rem; border-radius: 999px; transition: background 0.2s; }
+    .btn-primary:hover { background: #8b8b8b; }
+    .btn-outline { display: inline-block; border: 1px solid #000; color: #000; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; padding: 0.85rem 2.2rem; border-radius: 999px; transition: background 0.2s, color 0.2s; }
+    .btn-outline:hover { background: #000; color: #fff; }
+    .s-card { border-top: 1px solid #e5e5e5; padding: 2.5rem 0; }
+    .s-card:last-child { border-bottom: 1px solid #e5e5e5; }
+    .benefit-card { border: 1px solid #e5e5e5; border-radius: 4px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+    .benefit-card:hover { border-color: #000; transform: translateY(-3px); }
+    input, select, textarea { border: 1px solid #d4d4d4; border-radius: 4px; padding: 0.85rem 1rem; font-size: 0.9rem; width: 100%; background: #fff; transition: border-color 0.2s; font-family: 'DM Sans', sans-serif; color: #000; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #000; }
+    input::placeholder, textarea::placeholder { color: #aaa; }
+    .divider { width: 40px; height: 1px; background: #000; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .app-feature-card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .app-feature-card:hover { border-color: #000; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .download-btn { display: inline-flex; align-items: center; gap: 12px; background: #000; color: #fff; padding: 1rem 2rem; border-radius: 14px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; text-decoration: none; }
+    .download-btn:hover { background: #222; transform: translateY(-2px); }
+    .spec-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #555; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+    .spec-row:last-child { border-bottom: none; }
+  </style>
+</head>
+<body class="bg-white text-primary font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-4 md:py-5 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-2">
+        <span class="font-serif text-lg md:text-xl tracking-tight" style="font-family:'DM Serif Display',serif;">Metodología 5S</span>
+      </a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#inicio"     class="nav-link">Inicio</a>
+        <a href="#que-es"     class="nav-link">¿Qué es?</a>
+        <a href="#las-5s"     class="nav-link">Las 5S</a>
+        <a href="#beneficios" class="nav-link">Beneficios</a>
+        <a href="#app"        class="nav-link">App</a>
+        <a href="#contacto"   class="nav-link">Contacto</a>
+      </div>
+      <a href="#contacto" class="btn-primary hidden md:inline-block">Contáctanos</a>
+      <button id="nav-toggle" class="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8" aria-label="Abrir menú">
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-1"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-2"></span>
+        <span class="block w-6 h-0.5 bg-black transition-all duration-300" id="ham-3"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-5 py-6 flex flex-col gap-5">
+      <a href="#inicio"     class="nav-link" onclick="closeMobileMenu()">Inicio</a>
+      <a href="#que-es"     class="nav-link" onclick="closeMobileMenu()">¿Qué es?</a>
+      <a href="#las-5s"     class="nav-link" onclick="closeMobileMenu()">Las 5S</a>
+      <a href="#beneficios" class="nav-link" onclick="closeMobileMenu()">Beneficios</a>
+      <a href="#app"        class="nav-link" onclick="closeMobileMenu()">App</a>
+      <a href="#contacto"   class="nav-link" onclick="closeMobileMenu()">Contacto</a>
+      <a href="#contacto" class="btn-primary text-center mt-2" onclick="closeMobileMenu()">Contáctanos</a>
+    </div>
+  </nav>
+  <script>
+    (function() {
+      const toggle = document.getElementById('nav-toggle');
+      const menu   = document.getElementById('mobile-menu');
+      const h1 = document.getElementById('ham-1');
+      const h2 = document.getElementById('ham-2');
+      const h3 = document.getElementById('ham-3');
+      let open = false;
+      toggle.addEventListener('click', function() {
+        open = !open;
+        menu.classList.toggle('hidden', !open);
+        h1.style.transform = open ? 'translateY(8px) rotate(45deg)' : '';
+        h2.style.opacity   = open ? '0' : '1';
+        h3.style.transform = open ? 'translateY(-8px) rotate(-45deg)' : '';
+      });
+      window.closeMobileMenu = function() {
+        open = false;
+        menu.classList.add('hidden');
+        h1.style.transform = '';
+        h2.style.opacity   = '1';
+        h3.style.transform = '';
+      };
+    })();
+  </script>
+
+  <!-- HERO -->
+  <section id="inicio" class="min-h-screen flex flex-col justify-center px-5 md:px-8 pt-24 pb-16 max-w-7xl mx-auto">
+    <div class="fade-up">
+      <span class="pill-tag mb-6 md:mb-8 block w-fit">Mejora Continua · Metodología Japonesa</span>
+      <h1 class="hero-text text-5xl sm:text-7xl md:text-9xl text-primary mb-6 md:mb-8 max-w-4xl">
+        Las <em>5S</em> que transforman tu empresa
+      </h1>
+      <p class="text-gray-500 text-base md:text-xl max-w-xl leading-relaxed mb-10 md:mb-12">
+        Un sistema probado que convierte cualquier espacio de trabajo en un entorno más seguro, ordenado y productivo.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#las-5s"   class="btn-primary">Explorar las 5S</a>
+        <a href="#contacto" class="btn-outline">Contáctanos</a>
+      </div>
+    </div>
+    <div class="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-gray-100 pt-10 md:pt-12">
+      <div><p class="hero-text text-3xl md:text-5xl mb-1">+30%</p><p class="section-label">Productividad</p></div>
+      <div><p class="hero-text text-3xl md:text-5xl mb-1">−50%</p><p class="section-label">Accidentes</p></div>
+      <div><p class="hero-text text-3xl md:text-5xl mb-1">60+</p><p class="section-label">Años de historia</p></div>
+      <div><p class="hero-text text-3xl md:text-5xl mb-1">Global</p><p class="section-label">Alcance mundial</p></div>
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section id="que-es" class="py-20 md:py-32 px-5 md:px-8 bg-gray-950">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <p class="section-label mb-6 text-gray-400">Origen &amp; Contexto</p>
+          <h2 class="hero-text text-4xl md:text-6xl mb-8 leading-tight text-white">¿Qué son las 5S?</h2>
+          <div class="divider mb-8" style="background:#fff;"></div>
+          <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
+            Las <strong class="text-white font-semibold">5S</strong> es una metodología de origen japonés desarrollada por <strong class="text-white font-semibold">Toyota</strong> en la década de 1960. Su nombre proviene de cinco palabras japonesas que describen un sistema de organización del lugar de trabajo.
+          </p>
+          <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+            Orientada a la eficiencia, la seguridad y la calidad, hoy es adoptada por empresas de todo el mundo en industrias manufactureras, de servicios y salud.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
+            <p class="section-label mb-3">Origen</p>
+            <p class="text-gray-700 leading-relaxed">Desarrollada en Japón como parte del Sistema de Producción Toyota (TPS), base del pensamiento Lean moderno.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
+            <p class="section-label mb-3">Alcance Global</p>
+            <p class="text-gray-700 leading-relaxed">Adoptada por miles de empresas en más de 200 países, desde fábricas hasta hospitales y oficinas.</p>
+          </div>
+          <div class="bg-white p-6 md:p-8 rounded-sm border border-gray-100">
+            <p class="section-label mb-3">Resultados</p>
+            <p class="text-gray-700 leading-relaxed">Mejora la productividad hasta un 30% y reduce accidentes laborales de forma significativa y sostenida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAS 5S -->
+  <section id="las-5s" class="py-20 md:py-32 px-5 md:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 md:mb-16">
+        <p class="section-label mb-4">Los cinco pilares</p>
+        <h2 class="hero-text text-4xl md:text-6xl">Las 5 Pilares</h2>
+      </div>
+      <!-- S1 -->
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block"><span class="section-label">01</span></div>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIfZOB8B44Upk0OXaAzqoDkE3NhK9uB1Ejow&s" alt="Clasificar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">01</span>
+          <h3 class="hero-text text-3xl mb-1">Seiri</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Clasificar</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Separar lo necesario de lo innecesario. El objetivo es eliminar del espacio de trabajo todos los elementos que no son necesarios para las operaciones actuales, reduciendo el desorden y liberando espacio valioso.</p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Identificar elementos innecesarios con tarjetas rojas</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Eliminar, reubicar o reciclar lo que no se usa</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Mantener solo lo esencial en el área de trabajo</li>
+          </ul>
+        </div>
+      </div>
+      <!-- S2 -->
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block"><span class="section-label">02</span></div>
+        <div class="md:col-span-4 md:order-last">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img src="https://www.plandemejora.com/wp-content/uploads/seiton.png" alt="Ordenar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">02</span>
+          <h3 class="hero-text text-3xl mb-1">Seiton</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Ordenar</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Organizar los elementos necesarios de manera que sean fáciles de encontrar, usar y devolver a su lugar. Un lugar para cada cosa y cada cosa en su lugar.</p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Asignar un lugar fijo a cada herramienta o material</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Usar etiquetas, colores y señalización visual</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Organizar por frecuencia de uso y ergonomía</li>
+          </ul>
+        </div>
+      </div>
+      <!-- S3 -->
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block"><span class="section-label">03</span></div>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img src="https://gruporg.tech/web/image/649074-f61d0484/limpiar.jpg" alt="Limpiar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">03</span>
+          <h3 class="hero-text text-3xl mb-1">Seiso</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Limpiar</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Limpiar el entorno de trabajo, incluyendo máquinas y herramientas, para eliminar suciedad, polvo y contaminantes. La limpieza también es una forma de inspección que detecta problemas tempranamente.</p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Establecer rutinas diarias de limpieza</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Identificar y eliminar fuentes de suciedad</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Usar la limpieza como herramienta de inspección</li>
+          </ul>
+        </div>
+      </div>
+      <!-- S4 -->
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block"><span class="section-label">04</span></div>
+        <div class="md:col-span-4 md:order-last">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img src="https://gruporg.tech/web/image/658290-269f7966/estandarizaci%C3%B3n.png" alt="Estandarizar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">04</span>
+          <h3 class="hero-text text-3xl mb-1">Seiketsu</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Estandarizar</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Mantener y consolidar los logros de las tres primeras S mediante la creación de estándares, procedimientos y controles visuales que garanticen la consistencia.</p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Documentar procedimientos y estándares visuales</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Crear listas de verificación y auditorías periódicas</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Capacitar al personal en los nuevos estándares</li>
+          </ul>
+        </div>
+      </div>
+      <!-- S5 -->
+      <div class="s-card grid md:grid-cols-12 gap-6 md:gap-8 items-center">
+        <div class="md:col-span-1 hidden md:block"><span class="section-label">05</span></div>
+        <div class="md:col-span-4">
+          <div class="overflow-hidden rounded-lg aspect-[4/3]">
+            <img src="https://losutopicosalimentandoelblog.weebly.com/uploads/1/3/6/9/136930186/editor/motivado.jpg?1617475982" alt="Disciplina" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <span class="section-label md:hidden mb-2 block">05</span>
+          <h3 class="hero-text text-3xl mb-1">Shitsuke</h3>
+          <p class="text-gray-400 text-sm uppercase tracking-widest mb-4">Disciplina</p>
+          <p class="text-gray-600 leading-relaxed mb-5">Convertir las buenas prácticas en hábitos. Implica el compromiso de todos los miembros de la organización para mantener y mejorar continuamente los estándares establecidos.</p>
+          <ul class="space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Fomentar una cultura de mejora continua</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Realizar auditorías y reconocer logros</li>
+            <li class="flex items-start gap-2"><span class="mt-1 w-1 h-1 rounded-full bg-gray-400 flex-shrink-0"></span>Involucrar a toda la organización en el proceso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="py-20 md:py-32 px-5 md:px-8 bg-primary text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-12 md:mb-16">
+        <p class="section-label mb-4 text-gray-400">Por qué implementarlas</p>
+        <h2 class="hero-text text-4xl md:text-6xl text-white">Beneficios reales,<br/><em>resultados medibles</em></h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Mayor Productividad</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Reducción de tiempos de búsqueda y movimientos innecesarios en el flujo de trabajo.</p>
+        </div>
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Más Seguridad</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Espacios limpios y ordenados reducen accidentes laborales de forma significativa.</p>
+        </div>
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Mejor Calidad</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Entornos controlados minimizan errores y defectos en los procesos productivos.</p>
+        </div>
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Satisfacción Laboral</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Ambientes agradables mejoran el bienestar y la motivación del equipo humano.</p>
+        </div>
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Reducción de Costos</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Menos desperdicio, menor inventario y mejor aprovechamiento de los recursos disponibles.</p>
+        </div>
+        <div class="benefit-card border-gray-700 hover:border-white">
+          <div class="mb-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+          <h3 class="font-semibold text-lg mb-2 text-white">Mejora Continua</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Base sólida para implementar otras metodologías Lean, Kaizen y Six Sigma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       DESCARGA APP  — Sección completamente actualizada
+       ==================================================== -->
+  <section id="app" class="py-20 md:py-32 px-5 md:px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Encabezado -->
+      <div class="text-center mb-16">
+        <p class="section-label mb-4">Plataforma de Capacitación</p>
+        <h2 class="hero-text text-4xl md:text-6xl mb-6 leading-tight">
+          Descarga la app de<br/><em>Entrenamiento 5S</em>
+        </h2>
+        <div class="divider mx-auto mb-8"></div>
+        <p class="text-gray-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+          Una plataforma completa de capacitación con módulos interactivos, videos explicativos, evaluaciones y seguimiento de progreso. Diseñada para Alumnos, Tutores y Administradores.
+        </p>
+      </div>
+
+      <!-- Grid principal: funcionalidades + descarga -->
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start mb-16">
+
+        <!-- Columna izquierda: funcionalidades por rol -->
+        <div class="space-y-6">
+          <h3 class="font-semibold text-xl mb-6">¿Qué incluye la aplicación?</h3>
+
+          <!-- Rol Alumno -->
+          <div class="app-feature-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm">Alumno</p>
+                <p class="text-xs text-gray-500">Aprende a tu ritmo</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>5 módulos de aprendizaje (Seiri, Seiton, Seiso, Seiketsu, Shitsuke)</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Videos explicativos por módulo</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Evaluaciones con retroalimentación inmediata</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Envío de evidencias fotográficas (antes/después)</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Solicitud de avance al siguiente módulo</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Certificado digital al completar todos los módulos</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Seguimiento de progreso en tiempo real</li>
+            </ul>
+          </div>
+
+          <!-- Rol Tutor -->
+          <div class="app-feature-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm">Tutor / Docente</p>
+                <p class="text-xs text-gray-500">Gestiona y acompaña</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Panel de tutoría con alumnos asignados</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Revisión y aprobación de evidencias fotográficas</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Gestión de solicitudes de avance</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Generación de reportes PDF por alumno</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Desbloqueo manual de módulos</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Notificaciones en tiempo real</li>
+            </ul>
+          </div>
+
+          <!-- Rol Admin -->
+          <div class="app-feature-card">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-full bg-yellow-500 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-sm">Administrador</p>
+                <p class="text-xs text-gray-500">Control total</p>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Gestión completa de usuarios (crear, editar, asignar roles)</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Actualización de videos por módulo con enlace de YouTube</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Panel de tutoría integrado</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cambios en tiempo real para todos los usuarios</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Sin necesidad de recompilar para actualizar contenido</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Columna derecha: descarga + especificaciones -->
+        <div class="space-y-8">
+
+          <!-- Botón principal de descarga -->
+          <div class="border border-gray-200 rounded-2xl p-8 bg-white shadow-sm text-center">
+            <div class="w-20 h-20 rounded-2xl bg-black flex items-center justify-center mx-auto mb-6">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3 class="hero-text text-2xl mb-2">FiveSTraining</h3>
+            <p class="text-gray-500 text-sm mb-6">Aplicación de Entrenamiento 5S</p>
+
+            <a
+              href="composeApp-release.apk"
+              download="FiveSTraining.apk"
+              id="download-btn"
+              class="download-btn w-full justify-center mb-4"
+              onclick="trackDownload()"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Descargar APK para Android
+            </a>
+
+            <!-- Contador de descargas -->
+            <p class="text-xs text-gray-400 mb-6" id="download-count">Cargando descargas...</p>
+
+            <!-- Divisor -->
+            <div class="border-t border-gray-100 pt-6">
+              <p class="text-xs text-gray-500 mb-4 font-medium uppercase tracking-widest">Especificaciones técnicas</p>
+              <div class="text-left space-y-0">
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Versión</span>
+                  <span class="font-medium text-sm">1.0.0</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Plataforma</span>
+                  <span class="font-medium text-sm">Android 8.0+</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Tamaño</span>
+                  <span class="font-medium text-sm">~25 MB</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Idioma</span>
+                  <span class="font-medium text-sm">Español</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Base de datos</span>
+                  <span class="font-medium text-sm">Firebase Firestore</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Autenticación</span>
+                  <span class="font-medium text-sm">Firebase Auth</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Almacenamiento</span>
+                  <span class="font-medium text-sm">Firebase Storage</span>
+                </div>
+                <div class="spec-row">
+                  <span class="text-gray-400 w-32 flex-shrink-0 text-xs">Actualización</span>
+                  <span class="font-medium text-sm">Contenido en tiempo real</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QR Code -->
+          <div class="border border-gray-200 rounded-2xl p-6 bg-white shadow-sm flex items-center gap-6">
+            <div id="app-qr" class="p-2 border border-gray-100 rounded-xl bg-white flex-shrink-0" style="line-height:0;"></div>
+            <div>
+              <p class="font-semibold text-sm mb-1">Escanea para descargar</p>
+              <p class="text-gray-500 text-xs leading-relaxed">Apunta la cámara de tu teléfono Android al código QR para iniciar la descarga directamente.</p>
+            </div>
+          </div>
+
+          <!-- Instrucciones de instalación -->
+          <div class="border border-gray-200 rounded-2xl p-6 bg-white shadow-sm">
+            <p class="font-semibold text-sm mb-4">¿Cómo instalar?</p>
+            <ol class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                Descarga el archivo APK desde el botón o el código QR
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                En tu Android ve a <strong>Ajustes → Seguridad</strong> y activa "Instalar apps de fuentes desconocidas"
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                Abre el archivo descargado y toca <strong>Instalar</strong>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <span class="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                Solicita tus credenciales de acceso al administrador
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-20 md:py-32 px-5 md:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <div>
+          <p class="section-label mb-6">Escríbenos</p>
+          <h2 class="hero-text text-4xl md:text-6xl mb-6 leading-tight">Envíanos un<br/><em>Mensaje</em></h2>
+          <div class="divider mb-8"></div>
+          <p class="text-gray-500 leading-relaxed mb-10">¿Tienes preguntas sobre las 5S? Escríbenos y te responderemos a la brevedad.</p>
+          <div class="space-y-6 text-sm text-gray-500">
+            <div><p class="section-label mb-1">Respuesta</p><p>En menos de 24 horas hábiles</p></div>
+            <div><p class="section-label mb-1">Servicios</p><p>Consultoría · Capacitación · Auditoría</p></div>
+          </div>
+        </div>
+        <div>
+          <div id="alert" class="hidden mb-6 px-5 py-4 rounded text-sm font-medium"></div>
+          <form id="contactForm" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Nombre <span class="text-red-400">*</span></label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Correo Electrónico <span class="text-red-400">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Empresa / Organización</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa (opcional)" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Asunto <span class="text-red-400">*</span></label>
+              <select id="asunto" name="asunto" required>
+                <option value="">Selecciona un asunto</option>
+                <option value="consulta">Consulta general sobre 5S</option>
+                <option value="implementacion">Implementación en mi empresa</option>
+                <option value="capacitacion">Capacitación y talleres</option>
+                <option value="auditoria">Auditoría 5S</option>
+                <option value="app">Sobre la aplicación</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Mensaje <span class="text-red-400">*</span></label>
+              <textarea id="mensaje" name="mensaje" required rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center gap-2 rounded" style="border-radius:4px;">
+              <span id="btnText">Enviar Mensaje</span>
+              <span id="btnSpinner" class="hidden">
+                <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-12 md:py-16 px-5 md:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-gray-800 pb-10 mb-10">
+        <span class="hero-text text-2xl">Metodología 5S</span>
+        <div class="flex flex-wrap gap-8 text-sm text-gray-400">
+          <a href="#inicio"     class="hover:text-white transition-colors">Inicio</a>
+          <a href="#que-es"     class="hover:text-white transition-colors">¿Qué es?</a>
+          <a href="#las-5s"     class="hover:text-white transition-colors">Las 5S</a>
+          <a href="#beneficios" class="hover:text-white transition-colors">Beneficios</a>
+          <a href="#app"        class="hover:text-white transition-colors">App</a>
+          <a href="#contacto"   class="hover:text-white transition-colors">Contacto</a>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-gray-600">
+        <p>Seiri · Seiton · Seiso · Seiketsu · Shitsuke</p>
+        <p>© 2026 Metodología 5S. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Widget (igual que el original) -->
+  <style>
+    #wa-widget { position: fixed; bottom: 28px; right: 28px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+    #wa-btn { width: 58px; height: 58px; border-radius: 50%; background: #25d366; box-shadow: 0 4px 20px rgba(37,211,102,0.45); display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+    #wa-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    #wa-tooltip { background: #242424; color: #fff; font-size: 0.75rem; font-family: 'DM Sans', sans-serif; letter-spacing: 0.04em; padding: 6px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none; opacity: 0; transform: translateX(8px); transition: opacity 0.2s, transform 0.2s; }
+    #wa-widget:hover #wa-tooltip { opacity: 1; transform: translateX(0); }
+    #wa-panel { width: min(320px, calc(100vw - 40px)); background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.18); overflow: hidden; display: none; flex-direction: column; transform-origin: bottom right; animation: waPop 0.25s ease; }
+    #wa-panel.open { display: flex; }
+    @keyframes waPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+    #wa-header { background: #25d366; padding: 16px 18px; display: flex; align-items: center; gap: 12px; }
+    #wa-avatar { width: 42px; height: 42px; border-radius: 50%; background: #128c4a; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    #wa-header-name { font-weight: 600; font-size: 0.95rem; color: #fff; font-family: 'DM Sans', sans-serif; }
+    #wa-header-status { font-size: 0.72rem; color: rgba(255,255,255,0.85); font-family: 'DM Sans', sans-serif; }
+    #wa-close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1; padding: 2px 4px; transition: color 0.15s; }
+    #wa-close:hover { color: #fff; }
+    #wa-body { padding: 18px 16px; background: #ece5dd; }
+    #wa-bubble { background: #fff; border-radius: 0 12px 12px 12px; padding: 12px 14px; font-size: 0.85rem; line-height: 1.55; color: #333; font-family: 'DM Sans', sans-serif; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: relative; }
+    #wa-bubble::before { content: ''; position: absolute; top: 0; left: -8px; border-width: 0 8px 8px 0; border-style: solid; border-color: transparent #fff transparent transparent; }
+    #wa-time { text-align: right; font-size: 0.68rem; color: #999; margin-top: 4px; }
+    #wa-suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .wa-chip { background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: 5px 12px; font-size: 0.75rem; color: #128c4a; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: background 0.15s, border-color 0.15s; text-decoration: none; display: inline-block; }
+    .wa-chip:hover { background: #f0fdf4; border-color: #25d366; }
+    #wa-footer { padding: 12px 14px; border-top: 1px solid #f0f0f0; display: flex; gap: 8px; align-items: center; }
+    #wa-input { flex: 1; border: 1px solid #e5e5e5; border-radius: 999px; padding: 8px 14px; font-size: 0.82rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+    #wa-input:focus { border-color: #25d366; }
+    #wa-send { width: 36px; height: 36px; border-radius: 50%; background: #25d366; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; flex-shrink: 0; }
+    #wa-send:hover { background: #1ebe5d; }
+  </style>
+  <div id="wa-widget">
+    <div id="wa-panel">
+      <div id="wa-header">
+        <div id="wa-avatar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div id="wa-header-info"><div id="wa-header-name">Metodología 5S</div><div id="wa-header-status">● En línea</div></div>
+        <button id="wa-close" aria-label="Cerrar chat">✕</button>
+      </div>
+      <div id="wa-body">
+        <div id="wa-bubble">¡Hola! Bienvenido a <strong>Metodología 5S</strong>.<br/><br/>¿En qué podemos ayudarte hoy?<div id="wa-time">ahora</div></div>
+        <div id="wa-suggestions">
+          <a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20me%20interesa%20implementar%20las%205S%20en%20mi%20empresa" target="_blank" rel="noopener">Implementar 5S</a>
+          <a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20app%20de%20entrenamiento%205S" target="_blank" rel="noopener">Info de la App</a>
+          <a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20capacitaci%C3%B3n%205S" target="_blank" rel="noopener">Capacitación</a>
+          <a class="wa-chip" href="https://wa.me/527757577249?text=Hola%2C%20necesito%20una%20auditor%C3%ADa%205S" target="_blank" rel="noopener">Auditoría 5S</a>
+        </div>
+      </div>
+      <div id="wa-footer">
+        <input id="wa-input" type="text" placeholder="Escribe un mensaje..." />
+        <button id="wa-send" aria-label="Enviar por WhatsApp"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+    <div id="wa-tooltip">Chatea con nosotros</div>
+    <button id="wa-btn" aria-label="Abrir chat de WhatsApp">
+      <svg viewBox="0 0 32 32" fill="white" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.268 2 2 8.268 2 16c0 2.49.648 4.83 1.782 6.86L2 30l7.34-1.762A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.43 11.43 0 01-5.824-1.594l-.418-.248-4.354 1.046 1.074-4.24-.272-.434A11.46 11.46 0 014.5 16C4.5 9.648 9.648 4.5 16 4.5S27.5 9.648 27.5 16 22.352 27.5 16 27.5zm6.29-8.61c-.344-.172-2.036-1.004-2.352-1.118-.316-.114-.546-.172-.776.172-.23.344-.89 1.118-1.09 1.348-.2.23-.4.258-.744.086-.344-.172-1.452-.536-2.766-1.708-1.022-.912-1.712-2.038-1.912-2.382-.2-.344-.022-.53.15-.702.154-.154.344-.4.516-.6.172-.2.23-.344.344-.574.114-.23.058-.43-.028-.602-.086-.172-.776-1.872-1.064-2.562-.28-.672-.564-.58-.776-.59l-.66-.012c-.23 0-.602.086-.918.43-.316.344-1.204 1.176-1.204 2.868s1.232 3.326 1.404 3.556c.172.23 2.426 3.706 5.878 5.196.822.354 1.464.566 1.964.724.824.262 1.574.224 2.168.136.66-.098 2.036-.832 2.322-1.636.286-.804.286-1.492.2-1.636-.084-.144-.314-.23-.658-.4z"/></svg>
+    </button>
+  </div>
+  <script>
+    (function () {
+      const btn = document.getElementById('wa-btn');
+      const panel = document.getElementById('wa-panel');
+      const close = document.getElementById('wa-close');
+      const input = document.getElementById('wa-input');
+      const send  = document.getElementById('wa-send');
+      const WA_NUM = '527757577249';
+      function openPanel()  { panel.classList.add('open');    btn.style.display = 'none'; }
+      function closePanel() { panel.classList.remove('open'); btn.style.display = 'flex'; }
+      btn.addEventListener('click', openPanel);
+      close.addEventListener('click', closePanel);
+      function sendMessage() {
+        const text = input.value.trim();
+        if (!text) return;
+        window.open('https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+        input.value = '';
+      }
+      send.addEventListener('click', sendMessage);
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendMessage(); });
+    })();
+  </script>
+
+  <!-- QR Generator -->
+  <script>
+    (function () {
+      var container = document.getElementById('app-qr');
+      var origin = window.location.origin;
+      var isLocal = (origin === 'null' || origin === '' || origin.indexOf('localhost') !== -1 || origin.indexOf('127.0.0.1') !== -1);
+      var apkUrl;
+      if (isLocal) {
+        apkUrl = 'composeApp-release.apk';
+      } else {
+        var dir = window.location.pathname.replace(/\/[^/]*$/, '/');
+        apkUrl = origin + dir + 'composeApp-release.apk';
+      }
+      var img = document.createElement('img');
+      img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=110x110&margin=4&data=' + encodeURIComponent(apkUrl);
+      img.alt = 'QR para descargar la app';
+      img.width = 110; img.height = 110;
+      img.style.cssText = 'border-radius:8px;display:block;';
+      container.appendChild(img);
+    })();
+  </script>
+
+  <!-- Contador de descargas con Supabase -->
+  <script>
+    window.trackDownload = async function() {
+      try {
+        if (window.supabaseClient) {
+          await window.supabaseClient.from('descargas').insert([{ fecha: new Date().toISOString(), plataforma: 'android' }]);
+        }
+      } catch(e) { /* silencioso */ }
+    };
+    async function loadDownloadCount() {
+      try {
+        if (!window.supabaseClient) return;
+        const { count } = await window.supabaseClient.from('descargas').select('*', { count: 'exact', head: true });
+        const el = document.getElementById('download-count');
+        if (el && count !== null) {
+          el.textContent = count + (count === 1 ? ' descarga' : ' descargas') + ' hasta ahora';
+        } else if (el) { el.textContent = ''; }
+      } catch(e) {
+        const el = document.getElementById('download-count');
+        if (el) el.textContent = '';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadDownloadCount);
+  </script>
+
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="supabase.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
